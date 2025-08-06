@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الصفحة الترفيهية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+    body {
+      background: linear-gradient(to bottom right, #d8c3a5, #eae7dc);
+      color: #4e342e;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background-color: #bfa58a;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      font-size: 2.2rem;
+      color: #3e2723;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 20px;
+      background-color: #f8f5f2;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1100px;
+    }
+    .card {
+      background-color: #fff8f0;
+      border: 1px solid #e0d6ca;
+      border-radius: 20px;
+      padding: 30px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #4e342e;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      background-color: #fff3e0;
+    }
+    .card h2 {
+      margin-bottom: 12px;
+      font-size: 1.6rem;
+    }
+    .card p {
+      font-size: 1.05rem;
+      opacity: 0.9;
+    }
+    footer {
+      background-color: #bfa58a;
+      color: #3e2723;
+      text-align: center;
+      padding: 18px;
+      font-size: 0.95rem;
+      box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎉 أهلاً بك في عالم الترفيه</h1>
+  </header>
+
+  <main>
+    <div class="grid">
+      <a href="media.html" class="card">
+        <h2>🎵 الوسائط</h2>
+        <p>موسيقى، فيديوهات، ورفع ملفاتك المفضلة.</p>
+      </a>
+      <a href="movies.html" class="card">
+        <h2>🎬 أفلام ومسلسلات</h2>
+        <p>أفلام مصرية، أجنبية، رعب وأكثر.</p>
+      </a>
+      <a href="chat.html" class="card">
+        <h2>💬 دردشة ترفيهية</h2>
+        <p>روابط تواصل ممتعة ومزايا قادمة قريباً.</p>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 مؤسسة ذيب الترفيهية - جميع الحقوق محفوظة</p>
+  </footer>
+</body>
+</html>

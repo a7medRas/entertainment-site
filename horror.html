@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>👻 أفلام الرعب</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://images.unsplash.com/photo-1505666281634-1ecb7d67c06c?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #f8f8f8;
+    }
+    header, footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #ff4c4c;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.4rem;
+      text-shadow: 1px 1px 2px black;
+    }
+    main {
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      max-width: 900px;
+      margin: 20px auto;
+      border-radius: 10px;
+    }
+    h2 {
+      text-align: center;
+      color: #ff6f61;
+      margin-bottom: 20px;
+    }
+    iframe {
+      width: 100%;
+      height: 420px;
+      border: 3px solid #ff4c4c;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+    .movies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .movie {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid #ff4c4c;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .movie:hover {
+      transform: scale(1.05);
+      background-color: rgba(255, 76, 76, 0.3);
+    }
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 18px;
+      background-color: #ff4c4c;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>👻 أفلام الرعب</header>
+
+  <main>
+    <h2>شاشة العرض</h2>
+    <iframe id="videoFrame" src="" allow="autoplay" allowfullscreen></iframe>
+
+    <h2>📂 قائمة الأفلام</h2>
+    <div class="movies">
+      <div class="movie" onclick="playVideo('1jXn6x0awgEdqGYw0Ta_6_jmJ37Cksk0U')">🎬 The Mask</div>
+      <div class="movie" onclick="playVideo('1WOd73Rx-0-69DrNwmIVwRxqgpRn-QpqZ')">🎬 The Hills Have Eyes II (2007)</div>
+      <div class="movie" onclick="playVideo('1rr6iMzVFFNESkW0YvzRMiOYBAp_uL9o-')">🎬 House Of Wax (2005)</div>
+      <div class="movie" onclick="playVideo('1206HeJKOGWsE1GnRoMGYi8e58JUZFCnm')">🎬 The Hills Have Eyes (2006)</div>
+    </div>
+
+    <a href="movies.html" class="back-button">⬅️ رجوع</a>
+  </main>
+
+  <footer>© 2025 مؤسسة ذيب الترفيهية - جميع الحقوق محفوظة</footer>
+
+  <script>
+    function playVideo(id) {
+      const frame = document.getElementById("videoFrame");
+      frame.src = `https://drive.google.com/file/d/${id}/preview`;
+    }
+  </script>
+</body>
+</html>

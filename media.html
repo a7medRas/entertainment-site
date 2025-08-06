@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎵 مكتبة الوسائط</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, #ece0d1, #d5bfa3);
+      color: #3e2723;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background-color: #6d4c41;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.3rem;
+    }
+
+    main {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #4e342e;
+    }
+
+    input[type="file"] {
+      display: block;
+      margin: 20px auto;
+      padding: 10px;
+      border: 2px dashed #a1887f;
+      background-color: #fff8f0;
+      cursor: pointer;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      background-color: #fff8f0;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    li {
+      padding: 12px 18px;
+      border-bottom: 1px solid #e0d6ca;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    li:hover {
+      background-color: #f0e6da;
+    }
+
+    .controls {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+      margin: 8px;
+      padding: 10px 18px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #a1887f;
+      color: white;
+      transition: background 0.3s;
+    }
+
+    button.active {
+      background-color: #4e342e;
+    }
+
+    video, audio {
+      width: 100%;
+      margin-top: 25px;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 18px;
+      background-color: #8d6e63;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #5d4037;
+    }
+
+  </style>
+</head>
+<body>
+  <header>📚 مكتبة الصوتيات والفيديوهات</header>
+
+  <main>
+    <h2>اختر الملفات لتشغيلها</h2>
+    <input type="file" multiple accept="audio/*,video/*" onchange="handleFiles(event)">
+    
+    <ul id="playlist"></ul>
+
+    <div class="controls">
+      <button onclick="toggleRepeat()" id="repeatBtn">🔁 تكرار</button>
+      <button onclick="toggleShuffle()" id="shuffleBtn">🔀 عشوائي</button>
+    </div>
+
+    <div id="playerContainer"></div>
+
+    <a href="index.html" class="back-button">⬅️ العودة للصفحة الرئيسية</a>
+  </main>
+
+  <footer>© 2025 مؤسسة ذيب الترفيهية - جميع الحقوق محفوظة</footer>
+
+  <script>
+    let files = [];
+    let currentIndex = 0;
+    let repeat = false;
+    let shuffle = false;
+
+    function handleFiles(event) {
+      files = Array.from(event.target.files);
+      currentIndex = 0;
+      const playlist = document.getElementById("playlist");
+      playlist.innerHTML = "";
+      files.forEach((file, index) => {
+        const li = document.createElement("li");
+        li.textContent = file.name;
+        li.onclick = () => playMedia(index);
+        playlist.appendChild(li);
+      });
+      if (files.length) playMedia(0);
+    }
+
+    function playMedia(index) {
+      currentIndex = index;
+      const file = files[index];
+      const url = URL.createObjectURL(file);
+      const playerContainer = document.getElementById("playerContainer");
+      playerContainer.innerHTML = "";
+
+      const isVideo = file.type.startsWith("video");
+      const media = document.createElement(isVideo ? "video" : "audio");
+      media.src = url;
+      media.controls = true;
+      media.autoplay = true;
+      media.onended = () => nextMedia();
+      playerContainer.appendChild(media);
+    }
+
+    function nextMedia() {
+      if (repeat) {
+        playMedia(currentIndex);
+      } else if (shuffle) {
+        const next = Math.floor(Math.random() * files.length);
+        playMedia(next);
+      } else {
+        currentIndex++;
+        if (currentIndex < files.length) {
+          playMedia(currentIndex);
+        }
+      }
+    }
+
+    function toggleRepeat() {
+      repeat = !repeat;
+      document.getElementById("repeatBtn").classList.toggle("active", repeat);
+    }
+
+    function toggleShuffle() {
+      shuffle = !shuffle;
+      document.getElementById("shuffleBtn").classList.toggle("active", shuffle);
+    }
+  </script>
+</body>
+</html>
