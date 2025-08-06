@@ -2,84 +2,84 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>💬 دردشة ترفيهية</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Cairo', sans-serif;
-      background: linear-gradient(to bottom right, #d8c3a5, #eae7dc);
-      color: #4e342e;
+      background: linear-gradient(to right, #f3e5f5, #e1bee7);
+      color: #4a148c;
       margin: 0;
       padding: 0;
     }
+
     header, footer {
-      background-color: #bfa58a;
+      background-color: #6a1b9a;
+      color: white;
       text-align: center;
       padding: 20px;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
+
     main {
       padding: 30px;
       max-width: 800px;
       margin: auto;
       text-align: center;
     }
-    h2 {
-      margin: 30px 0 20px;
-      color: #3e2723;
-    }
-    .icon-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 20px;
-      justify-items: center;
-    }
-    .icon-grid a {
+
+    .icons {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .icon {
+      background-color: white;
+      border: 2px solid #8e24aa;
+      border-radius: 12px;
+      padding: 15px 25px;
+      font-size: 1.2rem;
+      color: #6a1b9a;
       text-decoration: none;
-      color: #4e342e;
-      transition: transform 0.3s;
+      transition: background 0.3s;
     }
-    .icon-grid a:hover {
-      transform: scale(1.1);
+
+    .icon:hover {
+      background-color: #f3e5f5;
     }
-    .icon-grid img {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 8px;
+
+    .back-button {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 10px 18px;
+      background-color: #6a1b9a;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
-  <header>💬 قسم الدردشة الترفيهية</header>
+  <header>💬 دردشة ترفيهية</header>
+
   <main>
-    <h2>روابط التواصل السريع</h2>
-    <div class="icon-grid">
-      <a href="https://www.google.com" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google">
-        <span>Google</span>
-      </a>
-      <a href="https://www.facebook.com" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
-        <span>Facebook</span>
-      </a>
-      <a href="https://www.youtube.com" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
-        <span>YouTube</span>
-      </a>
-      <a href="https://www.instagram.com" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-        <span>Instagram</span>
-      </a>
-      <a href="https://www.twitter.com" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
-        <span>Twitter</span>
-      </a>
+    <h2>تواصل معنا عبر المنصات المختلفة</h2>
+    <div class="icons">
+      <a href="https://www.google.com" class="icon" target="_blank">🔍 Google</a>
+      <a href="https://www.facebook.com" class="icon" target="_blank">📘 Facebook</a>
+      <a href="https://www.youtube.com" class="icon" target="_blank">▶️ YouTube</a>
+      <a href="https://www.instagram.com" class="icon" target="_blank">📸 Instagram</a>
+      <a href="https://www.twitter.com" class="icon" target="_blank">🐦 Twitter</a>
     </div>
+
+    <a href="index.html" class="back-button">⬅️ رجوع</a>
   </main>
-  <footer>© 2025 مؤسسة ذيب الترفيهية</footer>
+
+  <footer>© 2025 مؤسسة ذيب الترفيهية - جميع الحقوق محفوظة</footer>
 </body>
 </html>
